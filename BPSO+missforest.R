@@ -369,3 +369,14 @@ imputation = function(mydata_true,
   }
   print(mydata_true)
 }
+
+## example 
+library(car)
+data("iris")
+iris.mis <- prodNA(iris, noNA = 0.1)
+# mydata_true=NULL
+# mydata_ref=mydata_impu=iris.mis
+# var_cat (categorical variable)="Species"
+# var_con (continuous variable)= c("Sepal.Length", "Sepal.Width","Petal.Length", "Petal.Width")
+# mt (method)="mt"
+iris.imp <- imputation(NULL, iris.mis, iris.mis, "Species", c("Sepal.Length", "Sepal.Width","Petal.Length", "Petal.Width"), mt="mf", Ncores=NULL)
